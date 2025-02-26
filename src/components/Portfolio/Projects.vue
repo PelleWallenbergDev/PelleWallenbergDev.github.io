@@ -15,17 +15,19 @@
                 Ill also present different courses I have taken to give extra information about what I know and have done.
             </p>
         </div>
-        <div class="imgconatiner">p</div>
+        <div class="imgcontainer">
+            <img src="./images/coding.jpg">
+        </div>
     </div>
 </template>
 
 <style>
  .main{
     color: black;
-    margin: 15rem;
+    margin: 20rem;
     margin-top: 5rem;
     background-color: var(--blue);
-    margin-bottom: 500px;
+    
     display: flex;
     padding: 3rem;
     line-height: 1.1;
@@ -42,6 +44,8 @@
     color: black;
     font-size: 1.5rem;
     margin-bottom: 0.6rem;
+    padding-right: 8rem;
+    padding-left: 8rem;
  }
 
  .main a{
@@ -50,10 +54,14 @@
 
  .imgcontainer
  {
-    width: 50%;
-    height: 40rem;
+    min-width: 30rem;
+
  }
 
+ .imgcontainer img{
+    width: 30rem;
+    height: auto;
+ }
 
  /*p,h1,h2{
     font-family: "Teko", serif;
