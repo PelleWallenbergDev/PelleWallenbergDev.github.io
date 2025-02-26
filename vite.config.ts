@@ -14,7 +14,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: 'index.html',
-        portfolio: 'portfolio.html'
+        portfolio: 'portfolio.html',
+        home: 'home.html',
+        warehouse: 'warehouse.html'
       }
     }
   },

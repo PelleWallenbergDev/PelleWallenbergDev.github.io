@@ -1,0 +1,1 @@
+import{d as s,c as o,o as t,a as e,b as n,w as r,F as l,e as p}from"./WorkInProgress-t2v10nDm.js";const c=s({__name:"Warehouse",setup(i){return(u,a)=>(t(),o(l,null,[a[0]||(a[0]=e("header",null,[e("link",{href:"https://fonts.googleapis.com/css2?family=Teko&display=swap",rel:"stylesheet"})],-1)),e("main",null,[n(r)])],64))}}),m=p(c);m.mount("#warehouse");
