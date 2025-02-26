@@ -1,0 +1,1 @@
+import{d as s,c as t,o,a as e,b as p,w as n,F as r,_ as l,e as c}from"./WorkInProgress-t2v10nDm.js";const m=s({__name:"App",setup(f){return(i,a)=>(o(),t(r,null,[a[0]||(a[0]=e("header",null,[e("link",{href:"https://fonts.googleapis.com/css2?family=Teko&display=swap",rel:"stylesheet"})],-1)),e("main",null,[p(n)])],64))}}),_=l(m,[["__scopeId","data-v-58f0f555"]]);c(_).mount("#app");

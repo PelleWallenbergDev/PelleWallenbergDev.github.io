@@ -1,0 +1,1 @@
+import{d as a,c as s,o as t,a as e,b as n,w as l,F as r,e as p}from"./WorkInProgress-t2v10nDm.js";const c=a({__name:"Portfolio",setup(m){return(f,o)=>(t(),s(r,null,[o[0]||(o[0]=e("header",null,[e("link",{href:"https://fonts.googleapis.com/css2?family=Teko&display=swap",rel:"stylesheet"})],-1)),e("main",null,[n(l)])],64))}}),i=p(c);i.mount("#portfolio");
