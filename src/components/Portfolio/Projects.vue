@@ -34,6 +34,10 @@
 
     border-radius: 12px;
     box-shadow: var(--blue) 0px 6px 24px 0px, var(--black) 0px 0px 0px 1px;
+    padding-right: 8rem;
+    padding-left: 8rem;
+    gap: 3rem;
+    justify-content: left;
  }
 
  .main p{
@@ -44,8 +48,6 @@
     color: black;
     font-size: 1.5rem;
     margin-bottom: 0.6rem;
-    padding-right: 8rem;
-    padding-left: 8rem;
  }
 
  .main a{
@@ -62,6 +64,44 @@
     width: 30rem;
     height: auto;
  }
+
+
+ @media screen and (max-width: 1800px) {
+    .main{
+        padding: 5 rem;
+        margin-left: 10%;
+        margin-right: 10%;
+        min-width: 800px;
+    }
+ }
+
+ @media screen and (max-width: 1500px) {
+    .main{
+        padding: 5 rem;
+        margin-left: 10%;
+        margin-right: 10%;
+        min-width: 800px;
+    }
+ }
+
+
+ @media screen and (max-width: 1300px) {
+    .main{
+        padding: 3rem;
+        margin: 15vw;
+        min-width: 500px;
+        flex-direction: column;
+
+    }
+
+    .imgcontainer{
+        display: none;
+        margin-left: 1vw;
+    }
+
+
+    
+}
 
  /*p,h1,h2{
     font-family: "Teko", serif;
