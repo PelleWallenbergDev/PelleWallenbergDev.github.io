@@ -1,0 +1,25 @@
+{
+  "name": "my-vue-portfolio",
+  "version": "1.0.0",
+  "description": "A static portfolio website built with Vue.js",
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.0",
+    "vue-router": "^4.0.0"
+  },
+  "devDependencies": {
+    "vite": "^2.0.0"
+  },
+  "keywords": [
+    "vue",
+    "portfolio",
+    "website"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
