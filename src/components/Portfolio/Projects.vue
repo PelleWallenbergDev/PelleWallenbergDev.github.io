@@ -1,114 +1,119 @@
-<script lang="ts">
+<script setup lang="ts">
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import ProjectItem from './ProjectItem.vue'
+import projects from '@/data/projects.json'
 
+type Project = {
+    id: string
+    title: string
+    description: string
+    image?: string
+    tags: string[]
+}
+
+const list = ref<Project[]>(projects as Project[])
+const selectedId = ref<string | null>(null)
+const selectedProject = computed(() => list.value.find(p => p.id === selectedId.value) ?? null)
+
+function readProjectFromUrl() {
+    try {
+        const params = new URLSearchParams(window.location.search)
+        const id = params.get('project')
+        selectedId.value = id
+    } catch (e) {
+        selectedId.value = null
+    }
+}
+
+function openProject(id: string) {
+    // push a new history entry so browser back works
+    try {
+        const url = new URL(window.location.href)
+        url.searchParams.set('project', id)
+        window.history.pushState({ projectId: id }, '', url.toString())
+    } catch (e) {
+        // fallback
+        window.history.pushState({ projectId: id }, '', `?project=${id}`)
+    }
+    selectedId.value = id
+}
+
+function closeProject() {
+    // go back in history if possible so the URL restores
+    if (window.history.state && window.history.state.projectId) {
+        window.history.back()
+    } else {
+        // no special state, just clear selection and remove query param
+        try {
+            const url = new URL(window.location.href)
+            url.searchParams.delete('project')
+            window.history.replaceState({}, '', url.toString())
+        } catch (e) {
+            window.history.replaceState({}, '', window.location.pathname)
+        }
+        selectedId.value = null
+    }
+}
+
+function onPopState(e: PopStateEvent) {
+    // When user navigates back/forward, update selection from URL or state
+    if (e.state && (e.state as any).projectId) {
+        selectedId.value = (e.state as any).projectId
+    } else {
+        // fallback to search param
+        readProjectFromUrl()
+    }
+}
+
+onMounted(() => {
+    readProjectFromUrl()
+    window.addEventListener('popstate', onPopState)
+})
+
+onBeforeUnmount(() => {
+    window.removeEventListener('popstate', onPopState)
+})
 </script>
 
 <template>
-    <div class="main"> 
-        <div class="text">
-            <p>Hi my name is Pelle Wallenberg. Im a student at <a href="https://liu.se/">Linköping University</a>. I study Innovative programming, 
-                the innovative part being that we often work with different tools to create project. 
-                This makes us build up our portfolio as well as our programming expertise.
-            </p>
-            <break/>
-            <p>
-                I have created different project such as games, websites using frameworks, my own programming language using a tree based node system and more!
-                Ill also present different courses I have taken to give extra information about what I know and have done.
-            </p>
-        </div>
-        <div class="imgcontainer">
-            <img src="./images/coding.jpg">
-        </div>
+    <div class="portfolio-root">
+        <header class="portfolio-header">
+            <h1>Portfolio</h1>
+            <p>A selection of projects. Click an item to view details.</p>
+        </header>
+
+        <main>
+            <section v-if="!selectedProject" class="project-list">
+                <ProjectItem
+                    v-for="p in list"
+                    :key="p.id"
+                    :project="p"
+                    @open="openProject"
+                />
+            </section>
+
+            <section v-else class="project-page">
+                <button class="back" @click="closeProject">← Back</button>
+                <article class="project-detail">
+                    <h2>{{ selectedProject.title }}</h2>
+                    <img v-if="selectedProject.image" :src="selectedProject.image" :alt="selectedProject.title" />
+                    <p class="desc">{{ selectedProject.description }}</p>
+                    <ul class="tags">
+                        <li v-for="t in selectedProject.tags" :key="t" class="tag">{{ t }}</li>
+                    </ul>
+                </article>
+            </section>
+        </main>
     </div>
 </template>
 
-<style>
- .main{
-    color: black;
-    margin: 20rem;
-    margin-top: 5rem;
-    background-color: var(--blue);
-    
-    display: flex;
-    padding: 3rem;
-    line-height: 1.1;
-
-    border-radius: 12px;
-    box-shadow: var(--blue) 0px 6px 24px 0px, var(--black) 0px 0px 0px 1px;
-    padding-right: 8rem;
-    padding-left: 8rem;
-    gap: 3rem;
-    justify-content: left;
- }
-
- .main p{
-    font-family: "Teko", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    color: black;
-    font-size: 1.5rem;
-    margin-bottom: 0.6rem;
- }
-
- .main a{
-    all:unset
- }
-
- .imgcontainer
- {
-    min-width: 30rem;
-
- }
-
- .imgcontainer img{
-    width: 30rem;
-    height: auto;
- }
-
-
- @media screen and (max-width: 1800px) {
-    .main{
-        padding: 5 rem;
-        margin-left: 10%;
-        margin-right: 10%;
-        min-width: 800px;
-    }
- }
-
- @media screen and (max-width: 1500px) {
-    .main{
-        padding: 5 rem;
-        margin-left: 10%;
-        margin-right: 10%;
-        min-width: 800px;
-    }
- }
-
-
- @media screen and (max-width: 1300px) {
-    .main{
-        padding: 3rem;
-        margin: 15vw;
-        min-width: 500px;
-        flex-direction: column;
-
-    }
-
-    .imgcontainer{
-        display: none;
-        margin-left: 1vw;
-    }
-
-
-    
-}
-
- /*p,h1,h2{
-    font-family: "Teko", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    color: #ebdbb2;
-  }*/
-
+<style scoped>
+.portfolio-root{ padding: 2rem; }
+.portfolio-header{ margin-bottom: 1.5rem }
+.project-list{ display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem }
+.project-page{ max-width: 900px }
+.project-detail img{ width:100%; height:auto; border-radius:8px; margin:1rem 0; border: 3px solid var(--cerise) }
+.back{ background:transparent; border:0; color:var(--black); cursor:pointer; margin-bottom:0.5rem }
+.tags{ list-style:none; padding:0; display:flex; gap:0.5rem; flex-wrap:wrap }
+.tag{ padding:0.25rem 0.6rem; border-radius:999px; font-size:0.85rem }
 </style>
