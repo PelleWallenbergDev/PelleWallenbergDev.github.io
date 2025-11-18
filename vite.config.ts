@@ -25,7 +25,7 @@ export default defineConfig(async ({ command }) => {
       // If dynamic import fails, continue without the plugin.
       // This avoids crashing the dev server when the plugin expects browser globals.
       // eslint-disable-next-line no-console
-      console.warn('vite-plugin-vue-devtools could not be loaded:', e && e.message ? e.message : e)
+      console.warn('vite-plugin-vue-devtools could not be loaded:', (e as any)?.message ?? e)
     }
   }
 
