@@ -7,27 +7,11 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig(async ({ command }) => {
   const plugins = [vue()]
 
-  // Load the devtools plugin only when running the dev server.
-  // The plugin (or its dependencies) may access browser globals like localStorage
-  // during module initialization which fails when Vite loads the config in Node.
-  if (command === 'serve') {
-    try {
-      const mod = await import('vite-plugin-vue-devtools')
-      const vueDevTools = (mod as any).default ?? (mod as any)
-      // Some bundlers/types expose the plugin as a callable factory, others export a plugin object.
-      try {
-        // prefer calling if it's a factory
-        plugins.push(typeof vueDevTools === 'function' ? vueDevTools() : vueDevTools)
-      } catch (err) {
-        plugins.push(vueDevTools as any)
-      }
-    } catch (e) {
-      // If dynamic import fails, continue without the plugin.
-      // This avoids crashing the dev server when the plugin expects browser globals.
-      // eslint-disable-next-line no-console
-      console.warn('vite-plugin-vue-devtools could not be loaded:', (e as any)?.message ?? e)
-    }
-  }
+  // NOTE: vite-plugin-vue-devtools intentionally not loaded here to avoid
+  // plugin code accessing browser-only globals (like localStorage) during
+  // Vite config evaluation in Node. If you want to enable Vue DevTools,
+  // run it as a standalone browser extension or add the plugin manually
+  // in a local developer-only wrapper that guards against server-side load.
 
   return {
     plugins,

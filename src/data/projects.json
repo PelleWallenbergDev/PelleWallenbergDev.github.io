@@ -4,13 +4,20 @@
     "title": "Example Project One",
     "description": "A short description of Project One. Replace this with your real project text.",
     "image": "/src/components/Portfolio/images/project1.png",
-    "tags": ["vue", "vite"]
+    "tags": ["vue", "vite", "test", "test"]
   },
   {
     "id": "project-2",
     "title": "Example Project Two",
     "description": "A short description of Project Two. Replace this with your real project text.",
     "image": "/src/components/Portfolio/images/project2.png",
+    "tags": ["typescript", "css"]
+  },
+  {
+    "id": "project-3",
+    "title": "Example Project Three",
+    "description": "A short description of Project Two. Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.",
+    "images": ["/src/components/Portfolio/images/thanos.webp", "/src/components/Portfolio/images/image.webp"],
     "tags": ["typescript", "css"]
   }
 ]

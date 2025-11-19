@@ -1,14 +1,15 @@
+
 @import './base.css';
 
 :root {
-  --black: #282828;
-  --cerise: #E34A6F;
-  --pink: #f7b2bd;
-  --blue: #a2c5ac;
-  --grey: #9db5b2;
+	--black: #282828;
+	--cerise: #E34A6F;
+	--pink: #f7b2bd;
+	--blue: #a2c5ac;
+	--grey: #9db5b2;
 }
 
 body{
-  background-color: var(--black);
+	background-color: var(--black);
 }
 
