@@ -19,5 +19,12 @@
     "description": "A short description of Project Two. Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.",
     "images": ["/thanos.webp", "/image.webp"],
     "tags": ["typescript", "css"]
+  },
+  {
+    "id": "project-4",
+    "title": "Guardians of the Pond",
+    "description": "Guardians of the Pond is a tower defence game. That I created in the course TDDD23 - Game Programming at Linköping University. The game is made in Godot in GDScript. The focus of the course was game design, so a lot of tought went into imagining how a good game felt to use and learn. ",
+    "image": ["/froggame.png", "/godotfroggame.png"],
+    "tags": ["Game Design", "GDscript", "Godot",  "Pixel art" ]
   }
 ]
