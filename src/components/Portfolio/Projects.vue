@@ -126,10 +126,10 @@ onBeforeUnmount(() => {
             <section v-else class="project-page">
                 <button class="back" @click="closeProject">← Back</button>
                 <article class="project-detail">
-                    <h2>{{ selectedProject.title }}</h2>
-
                     <div v-if="images.length" class="carousel">
                             <div class="carousel-stage">
+                                    <!-- overlay title centered horizontally over the image -->
+                                    <h2 class="carousel-title">{{ selectedProject.title }}</h2>
                                     <button class="carousel-btn prev" @click="prevImage" aria-label="Previous image">◀</button>
                                     <img :src="images[currentImageIndex]" :alt="selectedProject.title" />
                                     <button class="carousel-btn next" @click="nextImage" aria-label="Next image">▶</button>
@@ -138,6 +138,9 @@ onBeforeUnmount(() => {
                                 <span v-for="(img, idx) in images" :key="idx" :class="['dot', { active: idx === currentImageIndex }]" @click="currentImageIndex = idx"></span>
                             </div>
                     </div>
+                    <template v-else>
+                        <h2 class="no-image-title">{{ selectedProject.title }}</h2>
+                    </template>
 
                     <ul class="tags">
                         <li v-for="t in selectedProject.tags" :key="t" class="tag">{{ t }}</li>
@@ -175,8 +178,26 @@ onBeforeUnmount(() => {
     justify-content: center;
     padding: 2rem;
 }
-.project-detail{ width:100%; max-width: 900px }
+.project-detail{ width:100%; max-width: 900px; position: relative; padding-top: 1rem }
+.project-detail h2{ margin:0; font-size:2rem }
 .project-detail img{ width:100%; height:auto; border-radius:8px; margin:1rem 0; border: 3px solid var(--cerise) }
+
+/* title overlay inside carousel: horizontally centered over image */
+.carousel-title{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -12%; /* place over the image near the top */
+    z-index: 20;
+    color: white;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    padding: 0.25rem 0.6rem;
+    background: rgba(0,0,0,0.18);
+    border-radius: 6px;
+}
+
+.no-image-title{ text-align: center; margin-bottom: 1rem }
 
 /* carousel styles */
 .carousel{ position: relative; display:flex; flex-direction:column; align-items:center; margin: 1rem 0 }

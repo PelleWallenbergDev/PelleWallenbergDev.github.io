@@ -1,30 +1,65 @@
 [
   {
     "id": "project-1",
-    "title": "Example Project One",
-    "description": "A short description of Project One. Replace this with your real project text.",
-    "image": "/src/components/Portfolio/images/project1.png",
-    "tags": ["vue", "vite", "test", "test"]
-  },
-  {
-    "id": "project-2",
-    "title": "Example Project Two",
-    "description": "A short description of Project Two. Replace this with your real project text.",
-    "image": "/src/components/Portfolio/images/project2.png",
-    "tags": ["typescript", "css"]
-  },
-  {
-    "id": "project-3",
-    "title": "Example Project Three",
-    "description": "A short description of Project Two. Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.",
-    "images": ["/thanos.webp", "/image.webp"],
-    "tags": ["typescript", "css"]
-  },
-  {
-    "id": "project-4",
     "title": "Guardians of the Pond",
     "description": "Guardians of the Pond is a tower defence game. That I created in the course TDDD23 - Game Programming at Linköping University. The game is made in Godot in GDScript. The focus of the course was game design, so a lot of tought went into imagining how a good game felt to use and learn. ",
     "images": ["/froggame.png", "/godotfroggame.png"],
     "tags": ["Game Design", "GDscript", "Godot",  "Pixel art" ]
+  },
+  {
+    "id": "project-2",
+    "title": "SOA",
+    "description": "This is a template description",
+    "images": ["image2.png"],
+    "tags": ["Java", "SOA", "JUnit" ]
+  },
+  {
+    "id": "project-3",
+    "title": "REACT AIDA",
+    "description": "This is a template description",
+    "images": ["image2.png"],
+    "tags": ["React" ]
+  },
+  {
+    "id": "project-4",
+    "title": "Constrictor",
+    "description": "This is a template description",
+    "images": ["image2.png"],
+    "tags": ["Ruby" ]
+  },
+  {
+    "id": "project-5",
+    "title": "Portfolio Website",
+    "description": "This is a template description",
+    "images": ["image2.png"],
+    "tags": ["Vue", "JavaScript", "CSS", "HTML" ]
+  },
+  {
+    "id": "project-6",
+    "title": "Square Game",
+    "description": "This is a template description",
+    "images": ["image2.png"],
+    "tags": ["C++", "Game Design" ]
+  },
+   {
+    "id": "project-7",
+    "title": "Listig",
+    "description": "This is a template description",
+    "images": ["image2.png"],
+    "tags": ["Flutter", "Dart", "Firebase" ]
+  },
+  {
+    "id": "project-8",
+    "title": "Chat App",
+    "description": "This is a template description",
+    "images": ["image2.png"],
+    "tags": ["C#", ".NET", "P2P" ]
+  },
+  {
+    "id": "project-9",
+    "title": "Mjauster",
+    "description": "This is a template description",
+    "images": ["image2.png"],
+    "tags": ["Vue", "JavaScript" ]
   }
 ]
