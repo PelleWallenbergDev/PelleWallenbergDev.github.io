@@ -17,7 +17,7 @@
     "id": "project-3",
     "title": "Example Project Three",
     "description": "A short description of Project Two. Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.Replace this with your real project text.",
-    "images": ["/src/components/Portfolio/images/thanos.webp", "/src/components/Portfolio/images/image.webp"],
+    "images": ["/src/assets/thanos.webp", "/src/assets/image.webp"],
     "tags": ["typescript", "css"]
   }
 ]
